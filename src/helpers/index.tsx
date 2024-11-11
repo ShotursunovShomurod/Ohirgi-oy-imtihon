@@ -1,4 +1,3 @@
-// Fixed type for WishlistItem array
 interface WishlistItem {
     id: number;
     title: string;

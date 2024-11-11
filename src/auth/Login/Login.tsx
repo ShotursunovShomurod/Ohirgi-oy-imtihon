@@ -16,16 +16,14 @@ const Login: FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Faqat "Войти" tugmasini bosganda localStorage'ga saqlash
+
     localStorage.setItem('phone', phone);
     localStorage.setItem('password', password);
     console.log('Logged in with:', { phone, password });
 
-    // Ma'lumotlarni inputlardan tozalash
     setPhone('');
     setPassword('');
 
-    // Sahifani yo'naltirish
     navigate('/');
   };
 

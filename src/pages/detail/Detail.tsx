@@ -2,13 +2,6 @@ import {FC, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useGetProductByIdQuery } from '../../redux/api/product-api';
 
-// interface DATA {
-//   id:string,
-//   url: string[],
-//   title:string,
-//   description:string,
-//   price:number
-// }
 
 const Detail: FC = () => {
   const navigate:any = useNavigate()
