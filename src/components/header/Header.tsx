@@ -37,6 +37,7 @@ const Header: FC = () => {
             <div className="flex items-center justify-center gap-[20px] text-[30px]">
               <BsClipboard2 />
               <Link to="/wishlist">
+              <sup>{}</sup>
                 <CiHeart />
               </Link>
               {isLoggedIn ? (
