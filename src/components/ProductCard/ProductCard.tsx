@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
 import roomIcon from "../../assets/Room.png";
 import Kvadrat from "../../assets/Area.png";
@@ -20,6 +20,12 @@ const ProductCard: FC<ProductCardProps> = ({
   isInWishlist,
 }) => {
   const dispatch = useDispatch();
+  const [isLiked, setIsLiked] = useState(isInWishlist);
+
+  const handleToggleWishlist = () => {
+    setIsLiked((prev) => !prev); 
+    dispatch(toggleWishlistItem(product));
+  };
 
   return (
     <div
@@ -49,7 +55,7 @@ const ProductCard: FC<ProductCardProps> = ({
           {product.title || "Hi-Tech Penthouse"}
         </h3>
         <div className="flex justify-between text-[#666]">
-          <div className="flex flex-col gap-[32px] space-x-2">
+          <div className="flex flex-col gap-[32px] space-y-2">
             <p className="text-2xl font-light text-[#6A9B0C]">
               $ {product.price || "750,000"}
             </p>
@@ -67,11 +73,8 @@ const ProductCard: FC<ProductCardProps> = ({
             </div>
           </div>
           <div className="flex flex-col justify-between items-end gap-y-8 h-full">
-            <button
-              onClick={() => dispatch(toggleWishlistItem(product))}
-              className="text-2xl"
-            >
-              {isInWishlist ? (
+            <button onClick={handleToggleWishlist} className="text-2xl">
+              {isLiked ? (
                 <FaHeart className="text-red-500 active:scale-125 transition-all" />
               ) : (
                 <FaRegHeart className="text-gray-500 active:scale-125 transition-all" />
